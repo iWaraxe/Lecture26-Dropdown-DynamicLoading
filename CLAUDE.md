@@ -82,3 +82,34 @@ mvn exec:java -Dexec.mainClass="com.coherentsolutions.java.webauto.section02.Ex0
 - Consistent teardown with `driver.quit()` in @AfterMethod
 - Proper exception handling in advanced examples
 - Clear naming conventions for constants and methods
+
+## Educational Materials
+
+This project includes 15 comprehensive educational markdown files organized in a progressive learning structure from foundational to expert level:
+
+### Foundational Level (01-03)
+- **01-dropdown-fundamentals.md**: Architectural decision frameworks and patterns
+- **02-wait-strategies.md**: Performance analysis of WebDriverWait vs FluentWait  
+- **03-timing-issues.md**: Race condition prevention patterns and debugging techniques
+
+### Practical Level (04-06)
+- **04-custom-dropdowns.md**: Framework-specific handling (React, Angular, Bootstrap)
+- **05-spa-loading.md**: Single Page Application loading patterns and challenges
+- **06-error-handling.md**: Retry patterns and error recovery strategies
+
+### Performance Level (07-09)
+- **07-performance-optimization.md**: Benchmarking and optimization strategies
+- **08-network-conditions.md**: Adaptive timeout strategies for different environments
+- **09-loading-indicators.md**: Classification and detection of loading indicators
+
+### Advanced Level (10-12)
+- **10-custom-conditions.md**: Extending Selenium's wait framework
+- **11-debugging-techniques.md**: Systematic diagnostic techniques and troubleshooting
+- **12-cross-browser-testing.md**: Browser-specific compatibility strategies
+
+### Expert Level (13-15)
+- **13-mobile-automation.md**: Touch-optimized strategies and responsive testing
+- **14-accessibility-testing.md**: WCAG compliance and assistive technology support
+- **15-performance-monitoring.md**: Production-aware testing with RUM integration
+
+See **README-Educational-Materials.md** for detailed learning paths, prerequisites, and time estimates for each topic.
