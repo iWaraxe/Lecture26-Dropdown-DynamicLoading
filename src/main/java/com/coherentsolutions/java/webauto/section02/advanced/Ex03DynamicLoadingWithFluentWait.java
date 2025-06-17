@@ -38,7 +38,7 @@ public class Ex03DynamicLoadingWithFluentWait {
         driver.get(URL);
         fluentWait = new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofSeconds(1))
+                .pollingEvery(Duration.ofMillis(500))
                 .ignoring(NoSuchElementException.class);
     }
 
@@ -49,14 +49,21 @@ public class Ex03DynamicLoadingWithFluentWait {
 
     @Test
     public void fluentWaitTest() {
-        driver.findElement(START_BUTTON).click();
-        WebElement message = fluentWait.until(new Function<WebDriver, WebElement>() {
-            public WebElement apply(WebDriver driver) {
-                return driver.findElement(FINISH_MESSAGE);
-            }
-        });
-        Assert.assertTrue(message.isDisplayed());
-        Assert.assertEquals(message.getText(), "Hello World!");
+        // Click the Start button after ensuring it is clickable
+        fluentWait.until(ExpectedConditions.elementToBeClickable(START_BUTTON)).click();
+
+        // Wait for the loading spinner to disappear
+        fluentWait.until(ExpectedConditions.invisibilityOfElementLocated(By.id("loading")));
+
+        // Wait for the finish message to become visible
+        WebElement message = fluentWait.until(ExpectedConditions.visibilityOfElementLocated(FINISH_MESSAGE));
+
+        // Log the message text for debugging
+        System.out.println("Message Text: " + message.getText());
+
+        // Validate the message visibility and content
+        Assert.assertTrue(message.isDisplayed(), "Finish message is not displayed.");
+        Assert.assertEquals(message.getText().trim(), "Hello World!", "Finish message text is incorrect.");
     }
 
     public static void main(String[] args) {

@@ -20,7 +20,7 @@ public class Ex04DropdownMultiSelect {
 
     private WebDriver driver;
 
-    private static final String URL = "https://example.com/multiselect-dropdown";
+    private static final String URL = "https://the-internet.herokuapp.com/dropdown";
 
     @BeforeMethod
     public void openBrowser() {
@@ -37,14 +37,14 @@ public class Ex04DropdownMultiSelect {
         driver.quit();
     }
 
-    @Test
+    @Test(enabled = true)
     public void dropdownMultiSelectTest() {
-        WebElement dropdownElement = driver.findElement(By.cssSelector("#multi-select-dropdown"));
+        WebElement dropdownElement = driver.findElement(By.cssSelector("#dropdown"));
         Select dropdown = new Select(dropdownElement);
 
         // Select multiple options
-        dropdown.selectByIndex(0);
         dropdown.selectByIndex(1);
+        dropdown.selectByIndex(2);
 
         // Verify multiple selections
         List<WebElement> selectedOptions = dropdown.getAllSelectedOptions();
